@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>ckplayer</title>
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		 <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+		<script src="/template/datll_wapian/js/jquery.js"></script>
+		<script src="/static/ckplayer/ckplayer.js"></script>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0px;
+				font-family: "Microsoft YaHei", YaHei, "微软雅黑", SimHei, "黑体";
+				font-size: 14px
+			}
+			video{ max-width: 360px;}
+			div{ position: relative;}
+		</style>
+		
+		<link href="/static/player/video/video.css" rel="stylesheet">
+		<script src="/static/player/video/video.min.js"></script>
+		<script src="/static/player/video/videojs-contrib-hls.js"></script>
+		
+			
+	</head>
+
+	<body>
+		
+		<div>
+			VIDEO - m3u8
+		</div>
+		<div id="room1" class="" style="width: 360px; height: 264px;">
+			
+			<video id="roomVideo1" class="video-js vjs-default-skin" controls preload="none" width="360" height="264"  >			 
+			</video>				
+			
+		</div>
+		
+		<div>
+			VIDEO - mp4
+		</div>
+		<div style="width: 360px; height: 264px;">
+			<video id="roomVideo2" class="video-js vjs-default-skin" controls preload="none" width="360" height="264"  >			 
+			</video>
+		</div>
+		
+		<script>
+			
+			var mp = $("#roomVideo1"),w = mp.width(), h = mp.height();
+			$(function(){
+				var myPlayer = videojs('roomVideo1',{
+		            bigPlayButton : true,
+		            textTrackDisplay : false,
+		            posterImage: false,
+		            errorDisplay : false,
+		            controlBar : false
+		      },function(){		       		
+					//暂停
+//					this.on('pause', function() {
+//					   $("#ad_pause").show();
+//					   //alert('暂停')
+//					});
+//					//播放
+//					this.on('play', function() {
+//					   $("#ad_pause").show();
+//					   //alert('播放')
+//					});
+		       });
+		       //http://v.medialaba.com:2280/media/videos//m3u8/20181109/d51c3614aca1303546a1b8ef32b6bc06/index.m3u8
+	
+	//http:\/\/videocdn2.quweikm.com:8091\/20181131\/JZIW8KFE513\/index.m3u8
+		       myPlayer.src('http://v.medialaba.com:2280/media/videos/m3u8/20181109/d51c3614aca1303546a1b8ef32b6bc06/index.m3u8');
+		       
+//		       var myPlayer2 = videojs('roomVideo2',{
+//		            bigPlayButton : true,
+//		            textTrackDisplay : false,
+//		            posterImage: false,
+//		            errorDisplay : false,
+//		            controlBar : false
+//		       });
+//		       myPlayer2.src('http://v.medialaba.com:2280/media/videos/m3u8/20181109/d51c3614aca1303546a1b8ef32b6bc06/index.m3u8');
+		      
+			});
+			
+			var MacPlayer = {
+				Adv:{}
+			};
+			
+			function getPlayerAdv(){
+				
+				$.ajax({
+					type:"get",
+					url:"/Adv/get_adv",
+					success:function(ret){
+						MacPlayer.Adv = {
+							front:ret.front[0],
+							pause:ret.pause[0]
+						};
+						
+						if(MacPlayer.Adv.front){
+							$("#room1").append(`<div id="ad_front" style="" class="ad_box">
+								<div><a target="_blank" href="${MacPlayer.Adv.front.link}"><img src="${MacPlayer.Adv.front.file}" /></a></div>
+								<span href="javascript:;" class="ad_close"><span class="ad_close_s"></span></span>
+							</div>`);
+						}
+						
+						if(MacPlayer.Adv.pause){
+							$("#room1").append(`<div id="ad_pause" style="display: none;" class="ad_box">
+								<div><a target="_blank" href="${MacPlayer.Adv.pause.link}"><img src="${MacPlayer.Adv.pause.file}" /></a></div>
+								<span href="javascript:;" class="ad_close"><span class="ad_close_s"></span></span>
+							</div>`);
+						}
+						
+						$(".ad_box a img").css({
+							"max-height":h, 
+							"max-width":w
+						});
+						
+						
+					}
+				});	
+				
+					//关闭广告
+				   	$("#room1").delegate(".ad_close","click",function(){
+					 	$("#ad_front").hide();
+					 	$("#ad_pause").hide();
+				   		//myPlayer.play();
+					}); 
+			}
+			
+			//getPlayerAdv();
+			
+		</script>
+		
+		
+		<div> ckplayer - m3u8</div>
+		<div id="video1" style="width: 360px; height: 200px;"></div>
+		
+		<div> ckplayer - mp4</div>
+		<div id="video2" style="width: 360px; height: 200px;"></div>
+		
+		
+		
+		<script type="text/javascript">
+			
+//			var videoObject = {
+//		        container: '#video1', //容器的ID或className
+//		        variable: 'player',//播放函数名称
+//		        autoplay:false,		       
+//		        video: "http://v.medialaba.com:2280/media/videos/m3u8/20181109/d51c3614aca1303546a1b8ef32b6bc06/index.m3u8",
+//		        advertisements:'/Adv/get_adv'
+//		    };
+//		    var player = new ckplayer(videoObject);
+//			
+//			var videoObject2 = {
+//		        container: '#video2', //容器的ID或className
+//		        variable: 'player',//播放函数名称
+//		        autoplay:false,		       
+//		        video: "http://sly.loko.pw/video/KTV事件/20180904/过生日在ktv找个公主口一下/过生日在ktv找个公主口一下.mp4",
+//		        advertisements:'/Adv/get_adv'
+//		    };
+//		   
+//		    var player = new ckplayer(videoObject2);
+		    
+		    
+		    
+		</script>
+		
+	</body>
+
+</html>

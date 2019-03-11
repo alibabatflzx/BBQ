@@ -1,0 +1,34 @@
+{    
+	
+	"front": [
+        {
+            "file": "/upload/banner/yy/YY-360x240b.gif",
+            "type": "gif",
+            "link": "http://888.yyate.com/index.php?s=/WebPublic/register/code/2c45f558e0d41d6e6a5dcfd8a2382f03/plf/link/",
+            "time": 8,
+            "exhibitionMonitor": "/adv/exhibitionMonitor",
+            "clickMonitor": "/adv/clickMonitor"
+        }
+    ],
+    "pause": [
+        {
+            "file": "/upload/banner/yy/YY-360x240b.gif",
+            "type": "gif",
+            "link": "http://888.yyate.com/index.php?s=/WebPublic/register/code/2c45f558e0d41d6e6a5dcfd8a2382f03/plf/link/",
+            "time": 3,
+            "exhibitionMonitor": "/adv/exhibitionMonitor",
+            "clickMonitor": "/adv/clickMonitor"
+        }
+    ],
+	"insert": [
+        {
+            "file": "/upload/banner/yy/YY-360x240b.gif",
+            "type": "gif",
+            "link": "http://888.yyate.com/index.php?s=/WebPublic/register/code/2c45f558e0d41d6e6a5dcfd8a2382f03/plf/link/",
+            "time": 5,
+            "exhibitionMonitor": "/adv/exhibitionMonitor",
+            "clickMonitor": "/adv/clickMonitor"
+        }
+    ],
+	"inserttime": "100"	
+}

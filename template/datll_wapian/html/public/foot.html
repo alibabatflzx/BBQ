@@ -1,0 +1,116 @@
+<footer class="footer" style="height: auto; min-height: 180px;">
+	<div class="container clearfix">
+		
+		
+		<div class="uk-float-left footer-logo">
+			<a href="/" target="_blank" class="uk-display-block"></a>
+		</div>
+		
+		<div class="uk-float-left footer-link">
+			<a>友情链接：</a>
+			{maccms:link type="font" by="sort"}
+			<a href="{$vo.link_url}" target="_blank">{$vo.link_name}</a>
+			{/maccms:link}
+		</div>
+    
+		
+		<div class="uk-float-right footer-r clearfix">
+			<div class="vip uk-float-left" style="display: none;">
+				<ul>
+					<li><a href="javascript:void(0);" target="_blank" class="uk-display-block margin-top-10">商务合作</a></li>
+					<li><a href="{:url('user/reg')}" target="_blank" class="uk-display-block margin-top-10">会员注册</a></li>
+				</ul>
+			</div>
+			<div class="contact-us uk-float-left">
+				<h3>联系我们</h3>
+				<div class="cs-qq">					
+					{maccms:foreach name="$maccms.site_qq_arr" id="qqs"}
+					<a class="uk-display-block cs-qq-btn cs-qq-btn-{$key + 1}" href="tencent://message/?uin={$qqs}&amp;Site=qq&amp;Menu=yes">
+						<span class="uk-display-block uk-float-left icon-cs-qq"></span>
+						&nbsp;
+						<span>
+							{if $key === 0}客服:{/if}
+							{if $key === 1}招商:{/if}
+							{if $key === 2}反馈:{/if}
+							{$qqs}</span>
+					</a>
+					{/maccms:foreach}
+					
+					
+					   
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="padding: 20px 0px; text-align: center; color: #FFFFFF;font-size: 14px; clear: both;">免责声明:本站所有视频均来自互联网收集而来，版权归原创者所有，如果侵犯了你的权益，请通知我们，我们会及时删除侵权内容，谢谢合作！</div>
+
+</footer>
+
+<div class="footer_m">
+	{maccms:foreach name="$maccms.site_qq_arr" id="qqs"}
+	<h4>
+		<a style="color:#1db69a; padding: 10px 0 5px;" class="btn-qq-cs" href="tencent://message/?uin={$qqs}&amp;Site=qq&amp;Menu=yes">
+			<span>{if $key === 0}客服:{/if}
+							{if $key === 1}招商:{/if}
+							{if $key === 2}反馈:{/if}QQ:{$qqs}</span>
+		</a>
+	</h4>
+	{/maccms:foreach}
+	<h3>版权所有©<script> document.write(location.host);</script> </h3>
+</div>
+
+<style>
+@media screen and (min-width:750px){
+	.fix_foot_bann,.fix_foot_line{ display: none; height: 0; overflow: hidden;}	
+}
+.fix_foot_line{ height: 80px; clear: both;}
+</style>
+<div id="fix_foot_line" class="fix_foot_line"></div>
+<div id="fix_foot_bann" class="fix_foot_bann" style="position: fixed;bottom: 0;left: 0; right: 0;">
+{maccms:adv type='4' id='global_bottom'}	
+	<a href="{$global_bottom.link}" target="_blank">
+        <img style="width: 100%; min-height: 50px;" src="{$global_bottom.img}">
+     </a>    
+{/maccms:adv}
+</div>
+<script type="text/javascript">
+	$(function(){		
+		if($("#fix_foot_bann a").length == 0){
+			$("#fix_foot_line").remove();
+			$("#fix_foot_bann").remove();
+		}
+	})
+</script>
+
+<div class="fix_topbanner">
+{maccms:adv type='7' id='bc'}	
+<div class="inner">
+<a href="{$bc.link}" target="_blank">
+<img style="width: 100%; min-height: 50px;" src="{$bc.img}">
+ </a>
+ <div class="x" onclick="$('.fix_topbanner').remove();">关闭</div>
+</div>
+{/maccms:adv}
+</div>
+<style>
+@media screen and (min-width:750px){
+	.fix_topbanner{ display: none; height: 0; overflow: hidden;}	
+}
+.fix_topbanner{  position: fixed; top: 0;left: 0;right: 0;    z-index: 999;}
+.fix_topbanner .inner{position: relative;}
+.fix_topbanner .x{font-size: 12px; padding: 2px 4px; color: #fff; position: absolute; right: 0;top: 0; background:rgb(0,0,0,0.5);}
+</style>
+
+<script type="text/javascript" src="{$maccms.path_tpl}js/bfixed.js"></script>
+
+
+
+
+<!--tongji-->
+<div style="height: 0;font-size: 0;display: none;">{$maccms.site_tj}</div>
+
+
+
+

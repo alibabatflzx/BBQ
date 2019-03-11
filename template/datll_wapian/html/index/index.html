@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="cache-control" content="no-siteapp">
+  <!-- {$maccms.site_name} -->
+  <!-- {$maccms.site_keywords} -->
+  <!-- {$maccms.site_description} -->
+<title>免费成人网,免费成人电影,在线成人电影,在线成人视频下载,成人电影网址大全,成人视频网址大全,有哪些成人电影网址,有哪些成人视频网址 - 撸草湾</title>
+<meta name="keywords" content="撸草湾,javhd,撸草湾成人网,撸草湾电影网,爱色影,成人影,君爱色成人网,爱色吧影院,成人色爱,av电影,av视频,撸草湾成人影,撸草湾成人影院">
+<meta name="description" content="撸草湾免费为大家提供高清云影视,最新最全的成人视频,成人电影.">
+{include file="public/include"}
+</head>
+<body class="home blog">
+{include file="public/head"}
+<style>
+	.v-advertise {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+</style>
+<div class="v-advertise">
+    <div class="v-advertise-one">
+        {maccms:adv type='1' id='i_banner'}
+			<a href="{$i_banner.link}" target="_blank">
+		        <img style="width:1200px;min-height: 50px;max-height: 80px;" src="{$i_banner.img}">
+		     </a>
+		{/maccms:adv}
+   </div>
+</div>
+
+<section class="container">
+  <div class="index_film">
+    <div class="single-strong">最新视频<!--<span class="chak"><a href="[matrix:link]">查看更多</a></span>--></div>
+    <div class="m-g">
+      <div class="b-listtab-main">
+        <div>
+          <div>
+            <div class="s-tab-main">
+              <ul class="list g-clear">
+                {maccms:vod num="12" type="all" order="desc" }
+                <li class='item'> <a class='js-tongjic' href='{:mac_url_vod_detail($vo)}' title='{$vo.vod_name}'>
+                  <div class='cover g-playicon'> <img width="286" height="213" src='{:mac_url_img($vo.vod_pic)}' alt='{$vo.vod_name}' /> <span class='pay'>{$vo.type.type_name}</span> <span class='hint'>{$vo.vod_remarks}</span></div>
+                  <div class='detail'>
+                    <p class='title g-clear'> <span class='s1'>{$vo.vod_name}</span> <span class='s2'>{$vo.vod_score}</span></p>
+                    <p class='star'>{$vo.vod_actor} </p>
+                  </div>
+                  </a> </li>
+                {/maccms:vod}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{maccms:type parent="current" order="asc" by="sort" mid="1" id="vo1"}
+<div style="height: 20px; clear: both;"></div>
+  <div class="Film_list">
+    <div class="single-strong">最新{$vo1.type_name} <span class="chak"><a href="{:mac_url_type($vo)}">查看更多</a></span></div>
+    <div class="b-listtab-main">
+      <div class="s-tab-main">
+        <ul class="list g-clear">
+          {maccms:vod num="10" type="'.$vo1['type_id'].'" order="desc" by="time"}
+          <li class='item'><a class='js-tongjic' href='{:mac_url_vod_detail($vo)} ' title='{$vo.vod_name}'>
+            <div class='cover g-playicon'> <img data-original='{:mac_url_img($vo.vod_pic)}' alt='{$vo.vod_name}' /> <span class='pay'>{$vo.type.type_name} </span><span class='hint'>{$vo.vod_remarks}</span> </div>
+            <div class='detail'>
+              <p class='title g-clear'> <span class='s1'>{$vo.vod_name}</span> <span class='s2'>{$vo.vod_score}</span></p>
+              <p class='star'>{$vo.vod_actor} </p>
+            </div>
+            </a></li>
+          {/maccms:vod}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="hot_film" >
+    <div class="single-strong">{$vo1.type_name}排行榜</div>
+
+	 
+
+	   <div class="hot_film_list">
+		{maccms:vod num="23" type="'.$vo['type_id'].'" order="desc" by="time"}
+		<a href="{:mac_url_vod_detail($vo)} "><span class=" {if condition="($key <=3)"}Serial_number{else /}Serial_numberh {/if}">{$key}</span><span class="vodname">{$vo.vod_name}</span><span class="list_score">{$vo.vod_score}</span></a> {/maccms:vod}
+	  </div>
+    
+
+
+  </div>
+  {/maccms:type}
+  
+  <div class="link" style="display: none;">
+
+    {maccms:link num="10" type="font"}
+       <a class="alink" href="{$vo.link_url}" target="_blank"> {$vo.link_name}</a>
+
+    {/maccms:link}
+  </div>
+
+
+</section>
+
+{include file="public/foot"}
+
+<script type="text/javascript"> document.body.oncontextmenu=document.body.ondragstart= document.body.onselectstart=document.body.onbeforecopy=function(){return false;};
+document.body.onselect=document.body.oncopy=document.body.onmouseup=function(){return false;}; </script>
+
+<style>
+.b-listtab-main .item{ overflow: hidden;}
+</style>
+
+
+
+<script type="text/javascript" src="{$maccms.path_tpl}js/jquery.lazyload.yh.js"></script>
+<script type="text/javascript" src="{$maccms.path_tpl}js/index.js"></script>
+
+
+</body>
+</html>
