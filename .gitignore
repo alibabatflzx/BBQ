@@ -1,4 +1,6 @@
 runtime/
 application/database.php
-.project
+.project/
 .settings/org.eclipse.core.resources.prefs
+.idea/
+
