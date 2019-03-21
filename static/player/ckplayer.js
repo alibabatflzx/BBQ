@@ -19,15 +19,14 @@ if(getMobileBrowser()){
 	document.write('<script type="text/javascript" src="'+ maccms.path +'/static/player/video.js"></script>');
 }else{
 	document.write('<script type="text/javascript" src="'+ maccms.path +'/static/player/ckplayer/ckplayer.js"></script>');
-	
-	
+
 	if(/Android/.test(navigator.userAgent)){	
 		var pl = $("#playleft"),w = $(window).width(),h = w/16*9;		
 		pl.css({
 			width:w,
 			height:h
 		});	
-		getCkPlayerAdv();
+		//getCkPlayerAdv();
 		$("#buffer").hide();
 		$("#install").hide();
 	}else{
@@ -37,7 +36,7 @@ if(getMobileBrowser()){
 	}
 }
 
-function loadCkPlayer(){	
+function loadCkPlayer(){
 	var r = typeof(ckplayer);
 	if(r && r.toLowerCase() == "function"){
 		var video = [
@@ -64,22 +63,18 @@ function loadCkPlayer(){
 	        //flashplayer:true,
 	        autoplay:true,
 	        video: MacPlayer.PlayUrl,
-	    	advertisements:'/Ajax/get_playbanner'
+	    	//advertisements:'/Ajax/get_playbanner'
 	    };
-	    var player = new ckplayer(videoObject); 
-	    
+	    var player = new ckplayer(videoObject);
 	}else{
 		setTimeout(function(){
 			loadCkPlayer()
 		},2000);
-	}	
-	
-	
+	}
 }
 
 
 function getCkPlayerAdv(){
-	
 	$.ajax({
 		type:"get",
 		url:"/Ajax/get_playbanner",
@@ -88,7 +83,6 @@ function getCkPlayerAdv(){
 				front:ret.front[0],
 				pause:ret.pause[0]
 			};
-			
 			if(MacPlayer.Adv.front){
 				pl.append(`<div id="ad_front" style="" class="ad_box">
 					<div><span id="adv_count_down" style="position: absolute; right: 10px;top: 10px; background: #000000; color: #FFFFFF;padding:5px 15px;font-size:14px;" class="adv_count_down"></span><a target="_blank" href="${MacPlayer.Adv.front.link}"><img src="${MacPlayer.Adv.front.file}" /></a></div>					
@@ -105,7 +99,6 @@ function getCkPlayerAdv(){
 					},1000);
 				
 			}
-			
 			if(MacPlayer.Adv.pause){
 				pl.append(`<div id="ad_pause" style="display: none;" class="ad_box">
 					<div><a target="_blank" href="${MacPlayer.Adv.pause.link}"><img src="${MacPlayer.Adv.pause.file}" /></a></div>

@@ -47,8 +47,7 @@ function getPlayerAdv(){
 		}
 	});	
 }
-
-getPlayerAdv();
+//getPlayerAdv();
 MacPlayer.Html = '';
 MacPlayer.Show();
 
