@@ -1,28 +1,16 @@
 /**
- * 判断是否是IOS移动端
+ * 判断是否是移动端
  */
-// function getMobileBrowser(){
-// 	if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
-// 		return true;
-// 	}
+function getMobileBrowser(){
+	if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)){
+		return true;
+	}
 //	else if(/Android/.test(navigator.userAgent) && MacPlayer.PlayUrl.indexOf(".m3u8")>0){
 //		return true;
 //	}
-// 	return false;
-// }
-
-/**
- * 判断是否是移动端
- */
-function getMobile(){
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-		return true;
-	}
 	return false;
 }
-
-
-if(getMobile()){
+if(getMobileBrowser()){
 	var pl = $("#playleft"),w = $(window).width(),h = w/16*9;		
 	pl.css({
 		width:w,
@@ -31,9 +19,21 @@ if(getMobile()){
 	document.write('<script type="text/javascript" src="'+ maccms.path +'/static/player/video.js"></script>');
 }else{
 	document.write('<script type="text/javascript" src="'+ maccms.path +'/static/player/ckplayer/ckplayer.js"></script>');
-	MacPlayer.Html = '';
-	MacPlayer.Show();
-	loadCkPlayer();
+
+	if(/Android/.test(navigator.userAgent)){	
+		var pl = $("#playleft"),w = $(window).width(),h = w/16*9;		
+		pl.css({
+			width:w,
+			height:h
+		});	
+		//getCkPlayerAdv();
+		$("#buffer").hide();
+		$("#install").hide();
+	}else{
+		MacPlayer.Html = '';
+		MacPlayer.Show();
+		loadCkPlayer();	
+	}
 }
 
 function loadCkPlayer(){
