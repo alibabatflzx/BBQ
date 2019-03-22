@@ -24,8 +24,10 @@
     <br/>
     <br/>
 </div>
+
+<!--自定顶飘-->
 <div class="fix_topbanner">
-    {maccms:adv type='7' id='bc'}
+    {maccms:adv type='11' id='bc'}
     <div class="inner">
         <a href="{$bc.link}" target="_blank">
             <img style="width: 100%; min-height: 50px;" src="{$bc.img}">
@@ -35,6 +37,13 @@
     {/maccms:adv}
 </div>
 
+
+<!--三方底-顶飘-->
+<div>
+    {maccms:adv type='7' id='bc'}
+        {$bc.content}
+    {/maccms:adv}
+</div>
 <script type="text/javascript">
     $(function(){
         if($("#fix_foot_bann a").length == 0){
@@ -42,15 +51,6 @@
             $("#fix_foot_bann").remove();
         }
     })
-</script>
-
-<script>
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = 'https://norrisrrrr.com:9595/v/104_150/1899_1';
-    var head = document.getElementsByTagName('head')[0];
-    head.appendChild(s);
 </script>
 
 <script>
