@@ -5,7 +5,9 @@
     <script type="text/javascript" src="/template/datll_wapian/js/jquery-1.8.3.min.js"></script>
     <!--<script type="text/javascript" src="{$maccms.path_tpl}js/bfixed.js"></script>-->
     <style>
-
+        @media screen and (min-width:750px){
+            .fix_topbanner{ display: none; height: 0; overflow: hidden;}
+        }
         .fix_topbanner{  position: fixed; top: 0;left: 0;right: 0;    z-index: 999;}
         .fix_topbanner .inner{position: relative;}
         .fix_topbanner .x{font-size: 12px; padding: 2px 4px; color: #fff; position: absolute; right: 0;top: 0; background:rgb(0,0,0,0.5);}

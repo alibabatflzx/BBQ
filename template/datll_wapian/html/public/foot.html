@@ -84,30 +84,35 @@
 	})
 </script>
 
+<!--自定顶飘-->
 <div class="fix_topbanner">
-{maccms:adv type='7' id='bc'}	
-<div class="inner">
-<a href="{$bc.link}" target="_blank">
-<img style="width: 100%; min-height: 50px;" src="{$bc.img}">
- </a>
- <div class="x" onclick="$('.fix_topbanner').remove();">关闭</div>
+	{maccms:adv type='11' id='bc'}
+	<div class="inner">
+		<a href="{$bc.link}" target="_blank">
+			<img style="width: 100%; min-height: 50px;" src="{$bc.img}">
+		</a>
+		<div class="x" onclick="$('.fix_topbanner').remove();">关闭</div>
+	</div>
+	{/maccms:adv}
 </div>
-{/maccms:adv}
-</div>
+
 <style>
-@media screen and (min-width:750px){
-	.fix_topbanner{ display: none; height: 0; overflow: hidden;}	
-}
-.fix_topbanner{  position: fixed; top: 0;left: 0;right: 0;    z-index: 999;}
-.fix_topbanner .inner{position: relative;}
-.fix_topbanner .x{font-size: 12px; padding: 2px 4px; color: #fff; position: absolute; right: 0;top: 0; background:rgb(0,0,0,0.5);}
+	@media screen and (min-width:750px){
+		.fix_topbanner{ display: none; height: 0; overflow: hidden;}
+	}
+	.fix_topbanner{  position: fixed; top: 0;left: 0;right: 0;    z-index: 999;}
+	.fix_topbanner .inner{position: relative;}
+	.fix_topbanner .x{font-size: 12px; padding: 2px 4px; color: #fff; position: absolute; right: 0;top: 0; background:rgb(0,0,0,0.5);}
 </style>
 
+<!--三方底-顶飘-->
+<div>
+	{maccms:adv type='7' id='bc'}
+	{$bc.content}
+	{/maccms:adv}
+</div>
+
 <script type="text/javascript" src="{$maccms.path_tpl}js/bfixed.js"></script>
-
-
-
-
 <!--tongji-->
 <div style="height: 0;font-size: 0;display: none;">{$maccms.site_tj}</div>
 
